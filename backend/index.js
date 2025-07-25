@@ -4,7 +4,7 @@ const app = express();
 const port = process.env.PORT;
 
 app.use(require('cors')({
-  origin: process.env.FRONTEND_URL,
+  origin: '*',
   methods: ['GET', 'POST'],
   headers: ['Content-Type'],
   credentials: true
