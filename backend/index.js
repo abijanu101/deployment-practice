@@ -3,8 +3,12 @@ const express = require('express');
 const app = express();
 const port = process.env.PORT;
 
-const cors = require('cors');
-app.use(cors());
+app.use(require('cors')({
+  origin: process.env.FRONTEND_URL,
+  methods: ['GET', 'POST'],
+  headers: ['Content-Type'],
+  credentials: true
+}));
 app.use(express.json());
 
 const connectToDB = require('./db.js');
