@@ -15,13 +15,13 @@ const connectToDB = require('./db.js');
 app.use(connectToDB);
 const ListItem = require('./models/listItem');
 
-app.get('/', async (req, res) => {
+app.get('/api/', async (req, res) => {
   const list = await ListItem.find();
   console.log('GET deez nuts');
   res.status(200).send({ list: list });
 });
 
-app.post('/', async (req, res) => {
+app.post('/api/', async (req, res) => {
   console.log('ts pmo before send');
   const newItem = new ListItem({ text: req.body.text });
   const saved = await newItem.save();

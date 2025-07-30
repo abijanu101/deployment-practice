@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: server
+  template:
+    metadata:
+      labels:
+        app: server
+    spec:
+      containers:
+      - name: server
+        image: abijanu101/deployment-practice-backend
+        ports:
+        - containerPort: 4000
+        env:
+        - name: FRONTEND_URL
+          valueFrom:
+            configMapKeyRef:
+              name: server-conf
+              key: frontend-url
+        - name: PORT
+          valueFrom:
+            configMapKeyRef:
+              name: server-conf
+              key: port
+        - name: MONGO_HOST
+          valueFrom:
+            configMapKeyRef:
+              name: server-conf
+              key: mongo-host
+        - name: MONGO_USER
+          valueFrom:
+            secretKeyRef:
+              name: mongo-secret
+              key: mongo-root-username
+        - name: MONGO_PW
+          valueFrom:
+            secretKeyRef:
+              name: mongo-secret
+              key: mongo-root-password
+        resoures:   
+
