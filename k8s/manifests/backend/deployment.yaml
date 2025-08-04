@@ -34,14 +34,11 @@ spec:
               name: server-conf
               key: mongo-host
         - name: MONGO_USER
-          valueFrom:
-            secretKeyRef:
-              name: mongo-secret
-              key: mongo-root-username
+          value: root
         - name: MONGO_PW
           valueFrom:
             secretKeyRef:
               name: mongo-secret
-              key: mongo-root-password
-        resoures:   
+              key: mongodb-root-password
+        resoures:
 

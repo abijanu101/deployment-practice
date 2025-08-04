@@ -1,0 +1,11 @@
+replicaCount: 3
+architecture: replicaset
+arbiter:
+  enabled: false
+
+auth:
+  existingSecret: mongo-secret
+
+persistence:
+  enabled: true
+  size: 1Gi
