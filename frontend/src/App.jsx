@@ -39,7 +39,7 @@ function App() {
           <h1 className="text-2xl">Add to the List</h1>
 
           <div className="flex gap-5">
-            <input ref={inputRef} placeholder="New List Item" className="border-b-2 border-dotted text-center w-50 border-green-600"
+            <input ref={inputRef} placeholder="New List Item" className="border-b-2 border-dotted text-center w-50 border-green-700"
               onKeyDown={(e) => { if (e.code === 'Enter') handleSubmission() }}
             />
             <button className="p-3 rounded-lg hover:px-4 transition-all duration-200 bg-green-500 text-white hover:brightness-105 cursor-pointer active:scale-95"
